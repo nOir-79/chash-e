@@ -1,0 +1,17 @@
+###
+POST http://localhost:5000/authenticate/register
+Content-Type: application/json
+
+{
+    "username":"Shakshor",
+    "password":"123456"
+}
+
+###
+POST http://localhost:5000/authenticate/login
+Content-Type: application/json
+
+{
+    "username":"Shakshor",
+    "password":"123456"
+}

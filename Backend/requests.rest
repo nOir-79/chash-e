@@ -3,8 +3,9 @@ POST http://localhost:5000/authenticate/register
 Content-Type: application/json
 
 {
-    "username":"Shakshor",
-    "password":"123456"
+    "username":"sadik",
+    "password":"123456",
+    "role":"seller"
 }
 
 ###
@@ -12,6 +13,22 @@ POST http://localhost:5000/authenticate/login
 Content-Type: application/json
 
 {
-    "username":"Shakshor",
+    "username":"sadik",
     "password":"123456"
 }
+
+
+###
+POST http://localhost:5000/product/addProduct
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2YzRlZGE0Mjg3YTVlNmEzMmJhNjljNyIsInVzZXJuYW1lIjoic2FkaWsiLCJwYXNzd29yZCI6IiQyYiQxMCR5MnFLVlEyUzlGRDY2Z21DeGdQOE9PVUVhck4wVlVFa0t3M1UxYnJ3V1lDRmE4dk10WEhVRyIsInJvbGUiOiJzZWxsZXIiLCJfX3YiOjB9LCJpYXQiOjE3MjQxODE5Mjd9.kSMUyvAUVIEzV82TjR5e2xm077FaRIErMKELO1BNRII
+Content-Type: application/json
+
+{
+    "name":"sadik mahamud shakshor",
+    "location":"dhap shimulbag",
+    "quantity":10,
+    "price":200
+}
+
+###
+GET http://localhost:5000/product/getProduct/66c4edb1287a5e6a32ba69ca

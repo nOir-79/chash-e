@@ -11,7 +11,6 @@ exports.authenticateJWT = async(req,res,next) =>{
         try{
             const decoded = jwt.verify(token,process.env.SECRET_TOKEN)
             req.user = decoded
-            console.log(req.user)
             next()
         }catch(error){
             console.error(error)
@@ -23,7 +22,6 @@ exports.authenticateJWT = async(req,res,next) =>{
 
 exports.roleAuthorize = (roles)=>{
     return (req,res,next)=>{
-        console.log(req.user.user.role)
         if(!roles.includes(req.user.user.role))
         {
             return res.status(500).send('Not authorized')

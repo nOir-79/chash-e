@@ -18,24 +18,65 @@ Content-Type: application/json
 }
 
 
+
+///PRODUCT SECTION
+
+
 ###
+//ADD A PRODUCT
 POST http://localhost:5000/product/addProduct
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MDUxNDY5ZmQ0N2Y3ZTg5YzZlNyIsInVzZXJuYW1lIjoiU2hha3Nob3IiLCJwYXNzd29yZCI6IiQyYiQxMCR3T3dBb005Y3pzOW50SE0wZWZTdEt1SktaNUV0REdnamFYdUJrUEZSQllFRWwxSVV0aTF5LiIsInJvbGUiOiJzZWxsZXIiLCJfX3YiOjB9LCJpYXQiOjE3MjQzMzgyNzh9.sUiM49JTJWW-NQbQcxWKkMHF-zHKpp3YLELKEK2zvqM
 Content-Type: application/json
 
 {
-    "name":"Fish",
+    "name":"Egg",
     "location":"dhap shimulbag",
     "quantity":10,
+    "seller":"66c7519d469fd47f7e89c6fe",
     "price":200
 }
 
 ###
-GET http://localhost:5000/product/getProduct/66c7509e469fd47f7e89c6eb
+//GETTING ALL THE PRODUCTS
 
+GET http://localhost:5000/product/getProduct
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
 
 
 ###
+//GET ALL THE PRODUCTS OF A SELLER
+
+GET http://localhost:5000/product/getProductForSeller/66c7519d469fd47f7e89c6ef
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+###
+//GET A PRODUCT BY AN ID
+GET http://localhost:5000/product/getProduct/66c7777e29505ce9caf28818
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+###
+//UPDATE A PRODUCT BY AN ID
+PUT http://localhost:5000/product/updateProduct
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+Content-Type: application/json
+
+{
+    "productId":"66c7777329505ce9caf28816",
+    "updateData":{
+        "location":"Gomosta Para"
+    }
+}
+
+###
+//DELETE A PRODUCT BY AN ID
+DELETE http://localhost:5000/product/deleteProduct/66c7777329505ce9caf28816
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+
+///ORDER SECTION
+
+###
+//CREATE AN ORDER
 POST http://localhost:5000/order/createOrder
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
 Content-Type: application/json

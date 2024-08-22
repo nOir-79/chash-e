@@ -3,7 +3,7 @@ const Product = require('../models/products')
 
 //API ENDPOINT FOR ADDING A PRODUCT
 exports.addProduct = async(req,res)=>{
-    const{name,images,location,quantity,price,details,seller} = req.body
+    const{name,images,location,quantity,price,details,seller,category,availability} = req.body
 
     if(!name || !quantity || !price)
     {
@@ -18,7 +18,9 @@ exports.addProduct = async(req,res)=>{
             quantity:quantity,
             price:price,
             details:details,
-            seller:seller
+            seller:seller,
+            category:category,
+            availability:availability
         })
 
         const createdProduct = await product.save()
@@ -134,5 +136,43 @@ exports.deleteProduct = async(req,res) =>{
     }catch(error){
         console.error(error)
         return res.status(500).send("Internal server error")
+    }
+}
+
+
+//API ENDPOINT TO IMPLEMENT ADVANCED SEARCH AND FILTERS
+
+exports.filterProducts = async(req,res)=>{
+    try{
+
+        const{priceHigh,priceLow,category,location,availability} = req.body
+
+        const queryString = {}
+        if(priceHigh != "" && priceLow != ""){
+            const priceObject = {};
+            priceObject['$lt'] = priceHigh;
+            priceObject['$gt'] = priceLow;
+            queryString['price'] = priceObject
+        }
+
+        if(category != ""){
+            const categoryObject = {}
+            categoryObject['$in']= category
+            queryString['category'] = categoryObject
+        }
+
+        if(location != ""){
+            queryString['location'] = location
+        }
+
+        queryString['availability'] = availability
+
+        const products = await Product.find(queryString)
+        
+        return res.status(200).send(products)
+
+    }catch(error){
+        console.error(error)
+        return res.status(500).send("Internal Server Error")
     }
 }

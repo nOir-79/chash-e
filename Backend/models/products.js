@@ -32,7 +32,12 @@ const productSchema = new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:'Review'
         }
-    ]
+    ],
+    category:[{
+        type:String,
+    }],
+    availability:{
+        type: Boolean
+    }
 })
-
 module.exports = mongoose.model('Product',productSchema)

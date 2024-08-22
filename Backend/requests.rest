@@ -29,11 +29,13 @@ Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6Ij
 Content-Type: application/json
 
 {
-    "name":"Egg",
-    "location":"dhap shimulbag",
+    "name":"Vegetable",
+    "location":"Dhaka",
     "quantity":10,
     "seller":"66c7519d469fd47f7e89c6fe",
-    "price":200
+    "price":60,
+    "category":["carbohydrate","food"],
+    "availability":true
 }
 
 ###
@@ -71,6 +73,19 @@ Content-Type: application/json
 //DELETE A PRODUCT BY AN ID
 DELETE http://localhost:5000/product/deleteProduct/66c7777329505ce9caf28816
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+###
+//FILTERING PRODUCTS
+POST http://localhost:5000/product/filter
+Content-Type: application/json
+
+{
+    "priceHigh":"301",
+    "priceLow":"50",
+    "category":["protein"],
+    "location":"Rangpur",
+    "availability":true
+}
 
 
 ///ORDER SECTION
@@ -139,3 +154,5 @@ Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6Ij
 //GETTING ALL ORDERS RELATED TO A SELLER 
 GET http://localhost:5000/order/getOrderForSeller/66c75051469fd47f7e89c6e7
 Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+

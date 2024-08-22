@@ -15,4 +15,6 @@ router.put('/updateProduct',authorize.authenticateJWT,productController.updatePr
 
 router.delete('/deleteProduct/:productId',authorize.authenticateJWT,productController.deleteProduct)
 
+router.post('/filter',productController.filterProducts)
+
 module.exports = router

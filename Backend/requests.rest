@@ -3,7 +3,7 @@ POST http://localhost:5000/authenticate/register
 Content-Type: application/json
 
 {
-    "username":"sadik",
+    "username":"Sakif",
     "password":"123456",
     "role":"seller"
 }
@@ -13,22 +13,88 @@ POST http://localhost:5000/authenticate/login
 Content-Type: application/json
 
 {
-    "username":"sadik",
+    "username":"Sakif",
     "password":"123456"
 }
 
 
 ###
 POST http://localhost:5000/product/addProduct
-Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2YzRlZGE0Mjg3YTVlNmEzMmJhNjljNyIsInVzZXJuYW1lIjoic2FkaWsiLCJwYXNzd29yZCI6IiQyYiQxMCR5MnFLVlEyUzlGRDY2Z21DeGdQOE9PVUVhck4wVlVFa0t3M1UxYnJ3V1lDRmE4dk10WEhVRyIsInJvbGUiOiJzZWxsZXIiLCJfX3YiOjB9LCJpYXQiOjE3MjQxODE5Mjd9.kSMUyvAUVIEzV82TjR5e2xm077FaRIErMKELO1BNRII
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MDUxNDY5ZmQ0N2Y3ZTg5YzZlNyIsInVzZXJuYW1lIjoiU2hha3Nob3IiLCJwYXNzd29yZCI6IiQyYiQxMCR3T3dBb005Y3pzOW50SE0wZWZTdEt1SktaNUV0REdnamFYdUJrUEZSQllFRWwxSVV0aTF5LiIsInJvbGUiOiJzZWxsZXIiLCJfX3YiOjB9LCJpYXQiOjE3MjQzMzgyNzh9.sUiM49JTJWW-NQbQcxWKkMHF-zHKpp3YLELKEK2zvqM
 Content-Type: application/json
 
 {
-    "name":"sadik mahamud shakshor",
+    "name":"Fish",
     "location":"dhap shimulbag",
     "quantity":10,
     "price":200
 }
 
 ###
-GET http://localhost:5000/product/getProduct/66c4edb1287a5e6a32ba69ca
+GET http://localhost:5000/product/getProduct/66c7509e469fd47f7e89c6eb
+
+
+
+###
+POST http://localhost:5000/order/createOrder
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+Content-Type: application/json
+
+{
+    "buyer":"66c7519d469fd47f7e89c6ef",
+    "seller":"66c75051469fd47f7e89c6e7",
+    "items":["66c7509e469fd47f7e89c6eb"],
+    "status":"",
+    "shippingAddress":{
+        "street":"10" ,
+        "city": "Khulna",
+        "division":"Khulna" ,
+        "zipCode": "1200",
+        "country":"Bangladesh" 
+    },
+    "orderDate":"2024-08-22",
+    "deliveryDate":"2024-08-30"
+}
+
+
+### 
+//GET A SINGLE ORDER 
+GET http://localhost:5000/order/getOrder/66c75536252f6739797009e2
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+###
+//GET ALL ORDERS
+GET http://localhost:5000/order/getOrder
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+###
+//UPDATE AN ORDER
+
+PUT http://localhost:5000/order/updateOrder
+Content-Type: application/json
+
+{
+    "orderId":"66c75536252f6739797009e2",
+    "updateData":{
+        "status":"Delivered",
+        "orderDate":"2024-09-20"
+    }
+}
+
+
+###
+//DELETING AN ORDER
+
+DELETE http://localhost:5000/order/deleteOrder/66c75536252f6739797009e2
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+
+###
+//GETTING ALL THE ORDERS OF A BUYER
+GET http://localhost:5000/order/getOrderForBuyer/66c7519d469fd47f7e89c6ef
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
+
+###
+//GETTING ALL ORDERS RELATED TO A SELLER 
+GET http://localhost:5000/order/getOrderForSeller/66c75051469fd47f7e89c6e7
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjY2Yzc1MTlkNDY5ZmQ0N2Y3ZTg5YzZlZiIsInVzZXJuYW1lIjoiU2FraWYiLCJwYXNzd29yZCI6IiQyYiQxMCQ4akZjZXFYUUxGLjFyZXAuMVZDV0plL3BLSTVNS3hCempRclJZYlZCSmhRT085Yy9IM3NsZSIsInJvbGUiOiJidXllciIsIl9fdiI6MH0sImlhdCI6MTcyNDMzOTM0M30.R8N3JtIRgXyJdPzIyA2_5kZrs8320Rl5AxwVmoSUwFU
